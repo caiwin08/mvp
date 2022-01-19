@@ -6,18 +6,12 @@ const port = 4000;
 const bodyParser = require('body-parser');
 
 //Middleware
-let myPath = path.join(__dirname, '../client/index.html');
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(myPath));
+app.use(express.static(path.join(__dirname, '/../dist')));
 
-app.get('/', (req, res)=> {
-    // console.log(myPath);
-    // res.end();
-    // res.sendFile(myPath) //<-- why does sending the file here work? But not in the static file server above?
-    res.end()
-  });
 
-  app.get('/recipes', (req, res)=> {
+//Requests
+app.get('/recipes', (req, res)=> {
   console.log('test');
 });
 
